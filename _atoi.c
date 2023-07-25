@@ -1,75 +1,75 @@
 #include "shell.h"
 
 /**
- * interactive - returns true if shell is interactive mode
- * @info: struct address
- *
- * Return: 1 if interactive mode, 0 otherwise
+ ** activitated -  shell on activitated mode it will return true 
+ ** @inf: is an adress in structure
+ ** Return: 1 if activitated mode; or 0.
  */
-int interactive(info_t *info)
+int activitated(info_s *inf)
 {
-	return (isatty(STDIN_FILENO) && info->readfd <= 2);
+	return (isatty(STDIN_FILENO) && inf->readfd <= 2);
 }
 
 /**
- * is_delim - checks if character is a delimeter
- * @c: the char to check
- * @delim: the delimeter string
- * Return: 1 if true, 0 if false
- */
-int is_delim(char c, char *delim)
+ ** del_is - verifie if char is delimeter or not
+ ** @d: a char checkes
+ ** @dem: a string delimeter
+ ** Return: 0 if false; or 1 if true
+ **/
+int del_is(char d, char *dem)
 {
-	while (*delim)
-		if (*delim++ == c)
+	while (*dem)
+		if (*dem++ == d)
 			return (1);
 	return (0);
 }
 
 /**
- * _isalpha - checks for alphabetic character
- * @c: The character to input
- * Return: 1 if c is alphabetic, 0 otherwise
- */
+ ** alph_is - verifier if it alphabetic chararactere.
+ ** @a: input the character
+ ** Return: 0 otherwise; 1 if alphbetic 
+ **/
 
-int _isalpha(int c)
+int alph_is(int a)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z'))
 		return (1);
 	else
 		return (0);
 }
 
 /**
- * _atoi - converts a string to an integer
- * @s: the string to be converted
- * Return: 0 if no numbers in string, converted number otherwise
- */
+ ** is_atio - change a chaine of string to an interger
+ ** @s: transformed the string
+ ** Return: 0 if string has not any numbers, else converte the number.
+ **/
 
-int _atoi(char *s)
+int is_atio(char *t)
 {
-	int i, sign = 1, flag = 0, output;
-	unsigned int result = 0;
+	int j, siign = 1, flag = 0, outp;
+	unsigned int resu = 0;
 
-	for (i = 0; s[i] != '\0' && flag != 2; i++)
+
+	for (j = 0; t[j] != '\0' && flag != 2; j++)
 	{
-		if (s[i] == '-')
-			sign *= -1;
+		if (t[j] == '-')
+			siign *= -1;
 
-		if (s[i] >= '0' && s[i] <= '9')
+		if (t[j] >= '0' && t[j] <= '9')
 		{
 			flag = 1;
-			result *= 10;
-			result += (s[i] - '0');
+			resu *= 10;
+			resu += (t[j] - '0');
 		}
 		else if (flag == 1)
 			flag = 2;
 	}
 
-	if (sign == -1)
-		output = -result;
+	if (siign == -1)
+		outp = -resu;
 	else
-		output = result;
+		outp = resu;
 
-	return (output);
+	return (outp);
 }
 
