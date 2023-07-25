@@ -1,92 +1,90 @@
 #include "shell.h"
 
 /**
- * _myenv - prints the current environment
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- * Return: Always 0
- */
-int _myenv(info_t *info)
+ ** _mienvv - prints the environment
+ ** @inf: Struct containe potential argu.
+ ** Return: 0
+ **/
+int _mienvv(info_s *inf)
 {
-	print_list_str(info->env);
+	prin_li_stt(inf->env);
 	return (0);
 }
 
 /**
- * _getenv - gets the value of an environ variable
- * @info: Structure containing potential arguments. Used to maintain
- * @name: env var name
- *
- * Return: the value
- */
-char *_getenv(info_t *info, const char *name)
+ ** _getevv - give a value of an envi var
+ ** @inf: Struct containe potential arguments
+ ** @nam: env var nam
+ ** Return: value
+ **/
+char *_getevv(info_s *inf, const char *nam)
 {
-	list_t *node = info->env;
+	list_s *nod = inf->env;
 	char *p;
 
-	while (node)
+	while (nod)
 	{
-		p = starts_with(node->str, name);
+		p = strest_wit(nod->str, nam);
 		if (p && *p)
 			return (p);
-		node = node->next;
+		nod = nod->next;
 	}
 	return (NULL);
 }
 
 /**
- * _mysetenv - Initialize a new environment variable,
- *             or modify an existing one
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: Always 0
- */
-int _mysetenv(info_t *info)
+ ** _misetrevv -initialized a new env var
+ **		or change an existing env var
+ ** @inf: Struct containepotential argu,Use to maintain
+ **        const funct prototype.
+ **  Return: 0
+ **/
+int _misetrevv(info_s *inf)
 {
-	if (info->argc != 3)
+	if (inf->argc != 3)
 	{
-		_eputs("Incorrect number of arguements\n");
+		_epputss("Incorrect number of arguements\n");
 		return (1);
 	}
-	if (_setenv(info, info->argv[1], info->argv[2]))
+	if (_sinitenva(inf, inf->argv[1], inf->argv[2]))//
 		return (0);
 	return (1);
 }
 
 /**
- * _myunsetenv - Remove an environment variable
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- * Return: Always 0
- */
-int _myunsetenv(info_t *info)
+ ** _miunssotenvv - Delete the env var
+ ** @inf: Struct containe potential argum. Use to maintain
+ **        const funct prototype.
+ ** Return: 0
+ **/
+int _miunssotenvv(info_s *inf)
 {
-	int i;
+	int z;
 
-	if (info->argc == 1)
+	if (inf->argc == 1)
 	{
-		_eputs("Too few arguements.\n");
+		_epputss("Too few arguements.\n");
 		return (1);
 	}
-	for (i = 1; i <= info->argc; i++)
-		_unsetenv(info, info->argv[i]);
+	for (z = 1; z <= inf->argc; z++)
+		_rmounsetenvv(inf, inf->argv[z]);
 
 	return (0);
 }
 
 /**
- * populate_env_list - populates env linked list
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- * Return: Always 0
+ * evv_populate_lis - populates env files en linked list
+ * @inf: Argument with possible arguments.
+ *  	used to retain the prototype of  const funct
+ * Return: 0
  */
-int populate_env_list(info_t *info)
+int evv_populate_lis(info_s *inf)
 {
-	list_t *node = NULL;
-	size_t i;
+	list_s *nod = NULL;
+	size_t v;
 
-	for (i = 0; environ[i]; i++)
-		add_node_end(&node, environ[i], 0);
-	info->env = node;
+	for (v = 0; environ[v]; v++)
+		nodd_add_end(&nod, environ[v], 0);
+	inf->env = nod;
 	return (0);
 }
