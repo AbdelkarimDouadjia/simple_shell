@@ -1,85 +1,84 @@
 #include "shell.h"
 
 /**
- * _eputs - prints an input string
- * @str: the string to be printed
+ * _epputss - print a string on input field
+ * @strr:  printed string
  *
- * Return: Nothing
+ * Return: Void (Nothing)
  */
-void _eputs(char *str)
+void _epputss(char *strr)
 {
-	int i = 0;
+	int v = 0;
 
-	if (!str)
+	if (!strr)
 		return;
-	while (str[i] != '\0')
+	while (strr[v] != '\0')
 	{
-		_eputchar(str[i]);
-		i++;
+		_charpiit(str[v]);
+		v++;
 	}
 }
 
 /**
- * _eputchar - writes the character c to stderr
- * @c: The character to print
+ * _charpiit - add the char C to Stderr
+ * @h: The txt will be printed
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return:  (1) if correct.
+ **  Errno is will be a value of -1 is return.
  */
-int _eputchar(char c)
+int _charpiit(char h)
 {
-	static int i;
+	static int d;
 	static char buf[WRITE_BUF_SIZE];
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (h == BUF_FLUSH || d >= WRITE_BUF_SIZE)
 	{
-		write(2, buf, i);
-		i = 0;
+		write(2, buf, d);
+		d = 0;
 	}
-	if (c != BUF_FLUSH)
-		buf[i++] = c;
+	if (h != BUF_FLUSH)
+		buf[d++] = h;
 	return (1);
 }
 
 /**
- * _putfd - writes the character c to given fd
- * @c: The character to print
- * @fd: The filedescriptor to write to
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * _pufiudf - writes the Char c in the specfic fd.
+ * @h: The txt will be printed.
+ * @fd: adress to writed to it	
+ * Return:  1 if correct answser 1.
+ * Otherways else an returned -1.
  */
-int _putfd(char c, int fd)
+int _pufiudf(char h, int fd)
 {
-	static int i;
+	static int d;
 	static char buf[WRITE_BUF_SIZE];
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (h == BUF_FLUSH || d >= WRITE_BUF_SIZE)
 	{
-		write(fd, buf, i);
-		i = 0;
+		write(fd, buf, d);
+		d = 0;
 	}
-	if (c != BUF_FLUSH)
-		buf[i++] = c;
+	if (h != BUF_FLUSH)
+		buf[d++] = d;
 	return (1);
 }
 
 /**
- * _putsfd - prints an input string
- * @str: the string to be printed
- * @fd: the filedescriptor to write to
+ * _pufstd - writes a string of input field
+ * @strr: str that be printed.
+ * @fd: his address to print.
  *
- * Return: the number of chars put
+ * Return: number of char entered in input
  */
-int _putsfd(char *str, int fd)
+int _pufstd(char *strr, int fd)
 {
-	int i = 0;
+	int f = 0;
 
-	if (!str)
+	if (!strr)
 		return (0);
-	while (*str)
+	while (*strr)
 	{
-		i += _putfd(*str++, fd);
+		f += _pufiudf(*str++, fd);
 	}
-	return (i);
+	return (f);
 }
