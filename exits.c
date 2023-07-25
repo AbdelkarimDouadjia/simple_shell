@@ -1,75 +1,84 @@
 #include "shell.h"
 
 /**
- **_strncpy - copies a string
- *@dest: the destination string to be copied to
- *@src: the source string
- *@n: the amount of characters to be copied
- *Return: the concatenated string
+ **_srtingcp - duplicate a string
+ *@dest: copied a string
+ *@src: original string.
+ *@n: duplicated many char.
+ *Return: string has been joined.
  */
-char *_strncpy(char *dest, char *src, int n)
+char *_srtingcp(char *dest, char *src, int n)
 {
-	int i, j;
 	char *s = dest;
-
-	i = 0;
-	while (src[i] != '\0' && i < n - 1)
+	int v = 0;
+	
+	while (src[v] != '\0' && v < n - 1)
 	{
-		dest[i] = src[i];
-		i++;
+		dest[v] = src[v];
+		v++;
 	}
-	if (i < n)
+	
+	if (v < n)
 	{
-		j = i;
+			int j = v;
 		while (j < n)
 		{
 			dest[j] = '\0';
 			j++;
 		}
 	}
+	
 	return (s);
 }
 
 /**
- **_strncat - concatenates two strings
- *@dest: the first string
- *@src: the second string
- *@n: the amount of bytes to be maximally used
- *Return: the concatenated string
+ **_copncastr - join two strings
+ *@dest: string has open.
+ *@src: backup group.
+ *@n: backup group.
+ *Return: string that has been joined.
  */
-char *_strncat(char *dest, char *src, int n)
+char *_copncastr(char *dest, char *src, int n)
 {
-	int i, j;
 	char *s = dest;
-
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
-		i++;
+	int v = 0;
+	int j = 0;
+	
+	while (dest[v] != '\0')
+	{
+		v++;
+	}
+	
 	while (src[j] != '\0' && j < n)
 	{
-		dest[i] = src[j];
-		i++;
+		dest[v + j] = src[j];
 		j++;
+		//j++;
 	}
+	
 	if (j < n)
-		dest[i] = '\0';
+	{
+		dest[v + j] = '\0';
+	}
+	
 	return (s);
 }
 
 /**
- **_strchr - locates a character in a string
- *@s: the string to be parsed
- *@c: the character to look for
- *Return: (s) a pointer to the memory area s
+ **_tischr - seek the char within the string.
+ *@s: to prased the string.
+ *@c: person to watch out for.
+ *Return: (s) a reference to location the memory.
  */
-char *_strchr(char *s, char c)
+char *_tischr(char *s, char c)
 {
-	do {
+	while (*s != '\0')
+	{
 		if (*s == c)
 			return (s);
-	} while (*s++ != '\0');
-
+		s++;
+	}
+	
 	return (NULL);
 }
 
