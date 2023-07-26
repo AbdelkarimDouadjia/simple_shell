@@ -17,7 +17,7 @@ int exi_mi(info_s *inf)
 		{
 			inf->status = 2;
 			errorp_rint(inf, "Illegal number: ");
-			_eputts(inf->argv[1]);
+			_epputss(inf->argv[1]);
 			_charpiit('\n');
 			return (1);
 		}
@@ -59,7 +59,7 @@ int _micded(info_s *inf)
 		}
 		_puutss(_getevv(inf, "OLDPWD=")), _puuchir('\n');
 		chdir_ret = /* TODO: what should this be? */
-			chdir((dir = _getevv(inf, "OLDPWD=")) ? dr : "/");
+			chdir((dr = _getevv(inf, "OLDPWD=")) ? dr : "/");
 	}
 	else
 		chdir_ret = chdir(inf->argv[1]);
