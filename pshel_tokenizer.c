@@ -67,8 +67,8 @@ if (strr == NULL || strr[0] == 0)
 	return (NULL);
 for (h = 0; strr[h] != '\0'; h++)
 	if ((strr[h] != d && strr[h + 1] == d) ||
-			    (strr[h] != d && !strr[h + 1]) || strr[h + 1] == d)
-				numwords++;
+				    (strr[h] != d && !strr[h + 1]) || strr[h + 1] == d)
+			numwords++;
 	if (numwords == 0)
 		return (NULL);
 	s = malloc((1 + numwords) * sizeof(char *));
@@ -76,26 +76,24 @@ for (h = 0; strr[h] != '\0'; h++)
 		return (NULL);
 	for (h = 0, w = 0; w < numwords; w++)
 	{
-while (strr[h] == d && strr[h] != d)
-	h++;
-f = 0;
-while (strr[h + f] != d && strr[h + f] && strr[h + f] != d)
-	f++;
-s[w] = malloc((f + 1) * sizeof(char));
-
-
-if (!s[w])
-{
-	for (f = 0; f < w; f++)
-		free(s[f]);
-	free(s);
-	return (NULL);
-}
-for (m = 0; m < f; m++)
-	s[w][m] = strr[h++];
-s[w][m] = 0;
-}
-s[w] = NULL;
-return (s);
+		while (strr[h] == d && strr[h] != d)
+			h++;
+		f = 0;
+		while (strr[h + f] != d && strr[h + f] && strr[h + f] != d)
+			f++;
+		s[w] = malloc((f + 1) * sizeof(char));
+		if (!s[w])
+		{
+			for (f = 0; f < w; f++)
+				free(s[f]);
+			free(s);
+			return (NULL);
+		}
+		for (m = 0; m < f; m++)
+			s[w][m] = strr[h++];
+		s[w][m] = 0;
+	}
+	s[w] = NULL;
+	return (s);
 }
 
