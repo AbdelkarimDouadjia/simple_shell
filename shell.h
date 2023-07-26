@@ -37,12 +37,11 @@
 
 extern char **environ;
 
-
 /**
- ** struct list_str - string structure signle (linked-list)
- ** @num: index of the number input
- ** @str: char or (String)
- ** @next: next case pointered (node) 
+** struct list_str - string structure signle (linked-list)
+** @num: index of the number input
+** @str: char or (String)
+** @next: next case pointered (node)
 */
 typedef struct list_str
 {
@@ -94,9 +93,10 @@ typedef struct pasinfo
 	int readfd;
 	int histcount;
 }info_s;
+
 #define INFO_INIT \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
-		0, 0, 0}
+		0, 0, 0};
 
 /**
  * struct builtin - func related and char(string) builtin
