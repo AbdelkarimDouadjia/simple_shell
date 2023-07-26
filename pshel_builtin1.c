@@ -57,7 +57,7 @@ int alia_sett(info_s *inf, char *strr)
 /**
  ** strings_print_alias - alias string printed
  ** @nod: the node of the alias
- ** Return: (0) if success , else 1 an error 
+ ** Return: (0) if success , else 1 an error
  **/
 int strings_print_alias(list_s *nod)
 {
