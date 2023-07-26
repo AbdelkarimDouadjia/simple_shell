@@ -66,7 +66,7 @@ int _micded(info_s *inf)
 	if (chdir_ret == -1)
 	{
 		errorp_rint(inf, "can't cd to ");
-		_eputts(inf->argv[1]), _charpiit('\n');
+		_epputss(inf->argv[1]), _charpiit('\n');
 	}
 	else
 	{
