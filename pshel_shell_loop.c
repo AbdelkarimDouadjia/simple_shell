@@ -70,7 +70,7 @@ bilttin_tal bultntl[] = {
 };
 for (d = 0; bultntl[d].type; d++)
 
-	if (_strcmp(inf->argv[0], bultntl[d].type) == 0)
+	if (_stcmmp(inf->argv[0], bultntl[d].type) == 0)
 {
 		inf->line_count++;
 		buuilt_i__r = bultntl[d].func(inf);
