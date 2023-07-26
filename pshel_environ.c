@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- ** _mienvv - prints the environment
+ ** _mievnv - prints the environment
  ** @inf: Struct containe potential argu.
  ** Return: 0
  **/
-int _mienvv(info_s *inf)
+int _mievnv(info_s *inf)
 {
 	prin_li_stt(inf->env);
 	return (0);
