@@ -50,9 +50,9 @@ while (*s1 && *s2)
 char *strest_wit(const char *haystack, const char *needle)
 {
 
-while (*needle)
-	if (*needle++ != *haystack++)
-		return (NULL);
+	while (*needle)
+		if (*needle++ != *haystack++)
+			return (NULL);
 	return ((char *)haystack);
 }
 
