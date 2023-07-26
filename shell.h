@@ -92,7 +92,7 @@ typedef struct pasinfo
 	int cmd_buf_type;
 	int readfd;
 	int histcount;
-}info_s;
+} info_s;
 #define INFO_INIT\
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
 	0, 0, 0}
