@@ -42,11 +42,11 @@ ssize_t inpu_buff(info_s *inf, char **buf, size_t *len)
 }
 
 /**
- * gts_inpu - delete new line from the line
+ * gis_inptu - delete new line from the line
  * @inf: argument struct
  * Return: bit code to read
  */
-ssize_t gts_inpu(info_s *inf)
+ssize_t gis_inptu(info_s *inf)
 {
 	static char *buf;
 	static size_t v, w, len;
