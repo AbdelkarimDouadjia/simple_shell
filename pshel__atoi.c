@@ -41,7 +41,7 @@ int alph_is(int a)
 /**
  ** is_atio - change a chaine of string to an interger
  ** @t: transformed the string
- ** Return: 0 if string has not any numbers, else converte the number.
+ ** Return: 0 if string has not any numbers, else convert the number.
  **/
 
 int is_atio(char *t)
