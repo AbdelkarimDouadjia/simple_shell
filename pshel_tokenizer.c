@@ -66,7 +66,7 @@ char **stoiww2(char *strr, char d)
 if (strr == NULL || strr[0] == 0)
 	return (NULL);
 for (h = 0; strr[h] != '\0'; h++)
-	if ((strr[h] != d && strr[h + 1] == d) ||
+		if ((strr[h] != d && strr[h + 1] == d) ||
 				    (strr[h] != d && !strr[h + 1]) || strr[h + 1] == d)
 			numwords++;
 	if (numwords == 0)
