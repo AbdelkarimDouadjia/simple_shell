@@ -12,8 +12,8 @@ int str_oint(char *s)
 	unsigned long int resu = 0;
 
 	if (*s == '+')
-		s++; 
-	for(v = 0; s[v]!= '\0'; v++)
+		s++;
+	for (v = 0; s[v] != '\0'; v++)
 	{
 		if (s[v] >= '0' && s[v] <= '9')
 		{
