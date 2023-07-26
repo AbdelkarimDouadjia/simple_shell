@@ -25,9 +25,9 @@ int is_chair(info_s *inf, char *buf, size_t *p)
 		w++;
 		inf->cmd_buf_type = CMD_AND;
 	}
-	else if (buf[w] == ';') 
+	else if (buf[w] == ';')
 	{
-		buf[w] = 0; 
+		buf[w] = 0;
 		inf->cmd_buf_type = CMD_CHAIN;
 	}
 
