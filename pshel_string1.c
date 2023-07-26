@@ -28,20 +28,20 @@ char *_stcocp(char *dest, char *src)
  */
 char *_strtprp(const char *str)
 {
-		int length = 0;
+	int length = 0;
+	char *ret;
 
-char *ret;
 	if (str == NULL)
 		return (NULL);
-		while (*str++)
+	while (*str++)
 		length++;
-			ret = malloc(sizeof(char) * (length + 1));
-if (!ret)
-	return (NULL);
+	ret = malloc(sizeof(char) * (length + 1));
+	if (!ret)
+		return (NULL);
 
-for (length++; length--;)
-	ret[length] = *--str;
-return (ret);
+	for (length++; length--;)
+		ret[length] = *--str;
+	return (ret);
 }
 /**
  ** _puutss - givees us the string has on the input field.
