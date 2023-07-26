@@ -59,7 +59,7 @@ int _pufiudf(char h, int fd)
 		d = 0;
 	}
 	if (h != BUF_FLUSH)
-		buf[d++] = d;
+		buf[d++] = h;
 	return (1);
 }
 
