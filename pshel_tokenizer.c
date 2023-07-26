@@ -35,18 +35,18 @@ s = malloc((1 + numwords) * sizeof(char *));
 		k = 0;
 		while (!del_is(strr[h + k], d) && strr[h + k])
 			k++;
-			s[w] = malloc((k + 1) * sizeof(char));
-			if (!s[w])
-			{
-				for (k = 0; k < w; k++)
-					free(s[k]);
-				free(s);
-				return (NULL);
-			}
-			for (m = 0; m < k; m++)
-				s[w][m] = strr[h++];
-			s[w][m] = 0;
-			}
+		s[w] = malloc((k + 1) * sizeof(char));
+		if (!s[w])
+		{
+			for (k = 0; k < w; k++)
+				free(s[k]);
+			free(s);
+			return (NULL);
+		}
+		for (m = 0; m < k; m++)
+			s[w][m] = strr[h++];
+		s[w][m] = 0;
+	}
 	s[w] = NULL;
 	return (s);
 }
