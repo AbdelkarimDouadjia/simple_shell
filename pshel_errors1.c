@@ -13,7 +13,7 @@ int str_oint(char *s)
 
 	if (*s == '+')
 		s++; 
-	for (v = 0;  s[v] != '\0'; v++)
+	for(v = 0; s[v]!= '\0'; v++)
 	{
 		if (s[v] >= '0' && s[v] <= '9')
 		{
@@ -32,7 +32,7 @@ int str_oint(char *s)
  ** errorp_rint -  print a message error
  ** @inf: the return is struct info & parameter
  ** @estrr: string containe specifie type error
- ** Return: if no num return 0, otherwise 
+ ** Return: if no num return 0, otherwise
  ** -1 error
  **/
 void errorp_rint(info_s *inf, char *estrr)
@@ -86,15 +86,15 @@ int decc_print(int input, int fd)
 }
 
 /**
- * converr_nuum - change the funct and clone of itoa
- * @num: number
- * @base: basee
- * @flags: argum flag
- * Return: string of charactere
- */
+* converr_nuum - change the funct and clone of itoa
+* @num: number
+* @base: basee
+* @flags: argum flag
+* Return: string of charactere
+*/
 char *converr_nuum(long int num, int base, int flags)
 {
-	static char *array; //
+	static char *array;
 	static char bufers[50];
 	char sign = 0;
 	char *ptr;
