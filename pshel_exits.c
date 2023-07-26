@@ -11,16 +11,14 @@ char *_srtingcp(char *dest, char *src, int n)
 {
 	char *s = dest;
 	int v = 0;
-	
 	while (src[v] != '\0' && v < n - 1)
 	{
 		dest[v] = src[v];
 		v++;
 	}
-	
-	if (v < n)
+	if(v < n)
 	{
-			int j = v;
+		int j = v;
 		while (j < n)
 		{
 			dest[j] = '\0';
@@ -37,7 +35,7 @@ char *_srtingcp(char *dest, char *src, int n)
  *@src: backup group.
  *@n: backup group.
  *Return: string that has been joined.
- */
+*/
 char *_copncastr(char *dest, char *src, int n)
 {
 	char *s = dest;
@@ -53,7 +51,6 @@ char *_copncastr(char *dest, char *src, int n)
 	{
 		dest[v + j] = src[j];
 		j++;
-		//j++;
 	}
 	
 	if (j < n)
@@ -65,11 +62,11 @@ char *_copncastr(char *dest, char *src, int n)
 }
 
 /**
- **_tischr - seek the char within the string.
- *@s: to prased the string.
- *@c: person to watch out for.
- *Return: (s) a reference to location the memory.
- */
+*_tischr - seek the char within the string.
+*@s: to prased the string.
+*@c: person to watch out for.
+*Return: (s) a reference to location the memory.
+**/
 char *_tischr(char *s, char c)
 {
 	while (*s != '\0')
@@ -81,4 +78,3 @@ char *_tischr(char *s, char c)
 	
 	return (NULL);
 }
-
