@@ -75,11 +75,11 @@ if (inf->status)
 }
 
 /**
- * replace_alias - changes the alias's string entry tokenize .
+ * chang_alia - changes the alias's string entry tokenize .
  * @inf: the structure argum.
  * Return: (0) always , else 1 replace the entry string.
  */
-int replace_alias(info_s *inf)
+int chang_alia(info_s *inf)
 {
 	int h;
 	list_s *noe;
