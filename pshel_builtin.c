@@ -9,6 +9,7 @@
 int exi_mi(info_s *inf)
 {
 	int exiverifie;
+
 	if (inf->argv[1])
 	{
 		exiverifie = str_oint(inf->argv[1]);
