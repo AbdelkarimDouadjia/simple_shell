@@ -83,12 +83,13 @@ ssize_t gts_inpu(info_s *inf)
 	*buf_p = buf;
 	return (r);
 }
-/*
-** buff_reead - reeads an article for buffer
-** @inf: var struct
-** @buf: bufers
-** @h: siz
-** Return: r
+
+/**
+ ** buff_reead - reeads an article for buffer
+ ** @inf: var struct
+ ** @buf: bufers
+ ** @h: siz
+ ** Return: r
 */
 ssize_t buff_reead(info_s *inf, char *buf, size_t *h)
 {
