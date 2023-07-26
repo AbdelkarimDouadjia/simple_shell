@@ -2,70 +2,59 @@
 
 /**
  ** _stcocp - string has been copied.
- ** @dest: the location of dest 
+ ** @dest: the location of dest
  ** @src: it is a source.
  ** Return: pointer to the dest variable.
  **/
 char *_stcocp(char *dest, char *src)
 {
-	
+
 	int d = 0;
-		if (dest == src || src == 0)
+if (dest == src || src == 0)
 	return (dest);
 	while (src[d])
-	{
-
-		
+	{	
 		dest[d] = src[d];
-	
 		d++;
-		
-		}
+	}
 dest[d] = 0;
-		return (dest);
+	return (dest);
 }
 
 /**
- * _strtprp - duplicates a string / the entry string will be duplicated.
- * @str: the string to duplicate / it is a variable to stored the duplicated string
+ * _strtprp - the entry string will be duplicated.
+ * @str: it is a variable to stored the duplicated string
  * Return: the str var will be pointered
  */
 char *_strtprp(const char *str)
 {
 		int length = 0;
-	
+
 char *ret;
-	if (str == NULL){
+	if (str == NULL)
 		return (NULL);
-	}
 		while (*str++)
 		length++;
 			ret = malloc(sizeof(char) * (length + 1));
-if (!ret){
+if (!ret)
 	return (NULL);
-}
+
 for (length++; length--;)
 	ret[length] = *--str;
 return (ret);
 }
-
 /**
- ** _puutss - givees us the string has on the input field. 
- ** @str: the string to be printed / print the entry string
+ ** _puutss - givees us the string has on the input field.
+ ** @str: print the entry string
  ** Return: void
  **/
 void _puutss(char *str)
 {
 	int d = 0;
-
-		if (!str){
+		if (!str)
 	return;
-		}
-
-	
 	while (str[d] != '\0')
 	{
-		
 _puuchir(str[d]);
 	d++;
 }
@@ -75,11 +64,10 @@ _puuchir(str[d]);
  ** _puuchir - give the char c to stdout funct and print it
  ** @c: it will print the given char
  ** Return: if(1) => correct.
- ** 	   if (-1) it will return an error.
+ **		if (-1) it will return an error.
  **/
 int _puuchir(char c)
 {
-	
 static int d;
 			static char buf[WRITE_BUF_SIZE];
 if (c == BUF_FLUSH || d >= WRITE_BUF_SIZE)
@@ -88,9 +76,7 @@ if (c == BUF_FLUSH || d >= WRITE_BUF_SIZE)
 		d = 0;
 	}
 	
-if (c != BUF_FLUSH){
+if (c != BUF_FLUSH)
 	buf[d++] = c;
-}
 return (1);
 }
-
