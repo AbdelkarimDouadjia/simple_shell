@@ -1,155 +1,162 @@
 #include "shell.h"
 
 /**
- * is_chain - test if current char in buffer is a chain delimeter
- * @info: the parameter struct
- * @buf: the char buffer
- * @p: address of current position in buf
- *
- * Return: 1 if chain delimeter, 0 otherwise
+ * is_chair - check is the current car in buffes is delimeter char or not
+ * @inf:  the structure argum.
+ * @buf: a buffes charactere
+ * @p: location adress on the memory of the current buffes
+ * Return: 0 always, else 1 => delimeter chair
  */
-int is_chain(info_t *info, char *buf, size_t *p)
+int is_chair(info_s *inf, char *buf, size_t *p)
 {
-	size_t j = *p;
+	size_t w = *p;
 
-	if (buf[j] == '|' && buf[j + 1] == '|')
+	if (buf[w] == '|' && buf[w + 1] == '|')
 	{
-		buf[j] = 0;
-		j++;
-		info->cmd_buf_type = CMD_OR;
+		buf[w] = 0;
+			w++;
+		inf->cmd_buf_type = CMD_OR;
 	}
-	else if (buf[j] == '&' && buf[j + 1] == '&')
+		
+	else if (buf[w] == '&' && buf[w + 1] == '&')
 	{
-		buf[j] = 0;
-		j++;
-		info->cmd_buf_type = CMD_AND;
+			buf[w] = 0;
+		
+		w++;
+		inf->cmd_buf_type = CMD_AND;
 	}
-	else if (buf[j] == ';') /* found end of this command */
+else if (buf[w] == ';') 
+{
+buf[w] = 0; 
+inf->cmd_buf_type = CMD_CHAIN;
+}
+
+
+else
+return (0);
+*p = w;
+return (1);
+}
+
+
+
+/**
+ ** chic_char - verifie wat must continue chain base on last state
+ ** @inf:  the structure argum.
+ ** @buf: a buffes charactere
+ ** @p:  location adress on the memory of the current buffes
+ ** @i: pos of beginnign in buffes
+ **
+ ** @len: buffes size
+ ** Return: Nothing
+ **/
+void chic_char(info_s *inf, char *buf, size_t *p, size_t i, size_t len)
+{
+	size_t w = *p;
+
+if (inf->cmd_buf_type == CMD_AND)
+{
+if (inf->status)
+{
+	buf[i] = 0;
+	w = len;
+}
+	}
+	if (inf->cmd_buf_type == CMD_OR)
 	{
-		buf[j] = 0; /* replace semicolon with null */
-		info->cmd_buf_type = CMD_CHAIN;
-	}
-	else
-		return (0);
-	*p = j;
-	return (1);
+if (!inf->status)
+{
+	buf[i] = 0;
+	w = len;
+}
+}
+
+*p = w;
 }
 
 /**
- * check_chain - checks we should continue chaining based on last status
- * @info: the parameter struct
- * @buf: the char buffer
- * @p: address of current position in buf
- * @i: starting position in buf
- * @len: length of buf
+ * replace_alias - changes the alias's string entry tokenize .
+ * @inf: the structure argum.
  *
- * Return: Void
+ * Return: (0) always , else 1 replace the entry string.
  */
-void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
+int replace_alias(info_s *inf)
 {
-	size_t j = *p;
-
-	if (info->cmd_buf_type == CMD_AND)
-	{
-		if (info->status)
-		{
-			buf[i] = 0;
-			j = len;
-		}
-	}
-	if (info->cmd_buf_type == CMD_OR)
-	{
-		if (!info->status)
-		{
-			buf[i] = 0;
-			j = len;
-		}
-	}
-
-	*p = j;
-}
-
-/**
- * replace_alias - replaces an aliases in the tokenized string
- * @info: the parameter struct
- *
- * Return: 1 if replaced, 0 otherwise
- */
-int replace_alias(info_t *info)
-{
-	int i;
-	list_t *node;
+	int h;
+	list_s *noe;
 	char *p;
 
-	for (i = 0; i < 10; i++)
+	for (h = 0; h < 10; h++)
 	{
-		node = node_starts_with(info->alias, info->argv[0], '=');
-		if (!node)
+		noe = start_nodd_wi(inf->alias, inf->argv[0], '=');
+		if (!noe)
 			return (0);
-		free(info->argv[0]);
-		p = _strchr(node->str, '=');
+		free(inf->argv[0]);
+		p = _tischr(noe->str, '=');
 		if (!p)
 			return (0);
-		p = _strdup(p + 1);
+		p = _strtprp(p + 1);
 		if (!p)
 			return (0);
-		info->argv[0] = p;
+		inf->argv[0] = p;
 	}
 	return (1);
 }
 
 /**
- * replace_vars - replaces vars in the tokenized string
- * @info: the parameter struct
- *
- * Return: 1 if replaced, 0 otherwise
- */
-int replace_vars(info_t *info)
+ ** change_ver - changes a variables into string tokenize .
+ ** @inf: a structure has argum.
+ ** Return: always (0) , otherwise we get (1) after replaced .
+ **/
+int change_ver(info_s *inf)
 {
-	int i = 0;
-	list_t *node;
+	int h = 0;
+	list_s *noe;
 
-	for (i = 0; info->argv[i]; i++)
+for (h = 0; inf->argv[h]; h++)
+{
+if (inf->argv[h][0] != '$' || !inf->argv[][1])
+	continue;
+
+if (!_stcmmp(inf->argv[h], "$?"))
+{
+	cahnge_strr(&(inf->argv[h]),
+			_strtprp(converr_nuum(inf->status, 10, 0)));
+	continue;
+}
+	if (!_stcmmp(inf->argv[h], "$$"))
 	{
-		if (info->argv[i][0] != '$' || !info->argv[i][1])
-			continue;
+					cahnge_strr(&(inf->argv[h]),
+							_strtprp(converr_nuum(getpid(), 10, 0)));
+					continue;
+				}
+		noe = start_nodd_wi(inf->env, &inf->argv[h][1], '=');
+if (noe)
+{
+	cahnge_strr(&(inf->argv[h]),
+			_strtprp(_tischr(noe->str, '=') + 1));
+	continue;
+}
+cahnge_strr(&inf->argv[h], _strtprp(""));
 
-		if (!_strcmp(info->argv[i], "$?"))
-		{
-			replace_string(&(info->argv[i]),
-					_strdup(convert_number(info->status, 10, 0)));
-			continue;
-		}
-		if (!_strcmp(info->argv[i], "$$"))
-		{
-			replace_string(&(info->argv[i]),
-					_strdup(convert_number(getpid(), 10, 0)));
-			continue;
-		}
-		node = node_starts_with(info->env, &info->argv[i][1], '=');
-		if (node)
-		{
-			replace_string(&(info->argv[i]),
-					_strdup(_strchr(node->str, '=') + 1));
-			continue;
-		}
-		replace_string(&info->argv[i], _strdup(""));
-
-	}
-	return (0);
+}
+return (0);
 }
 
 /**
- * replace_string - replaces string
- * @old: address of old string
- * @new: new string
- *
- * Return: 1 if replaced, 0 otherwise
+ * cahnge_strr - the entry string will be changes
+ * @old: stored the first entry string in var.
+ * @new: stored the second entry string in var.
+ * Return: 0 always, otherwise if (1) the second string will be changed to first.
  */
-int replace_string(char **old, char *new)
+int cahnge_strr(char **old, char *new)
 {
-	free(*old);
-	*old = new;
-	return (1);
+	
+free(*old);
+	
+		*old = new;
+
+	
+return (1);
 }
 
