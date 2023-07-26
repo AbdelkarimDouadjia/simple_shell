@@ -13,7 +13,7 @@ char *_stcocp(char *dest, char *src)
 if (dest == src || src == 0)
 	return (dest);
 	while (src[d])
-	{	
+	{
 		dest[d] = src[d];
 		d++;
 	}
@@ -51,13 +51,13 @@ return (ret);
 void _puutss(char *str)
 {
 	int d = 0;
-		if (!str)
+if (!str)
 	return;
 	while (str[d] != '\0')
 	{
-_puuchir(str[d]);
-	d++;
-}
+		_puuchir(str[d]);
+		d++;
+	}
 }
 
 /**
@@ -75,7 +75,6 @@ if (c == BUF_FLUSH || d >= WRITE_BUF_SIZE)
 	write(1, buf, d);
 		d = 0;
 	}
-	
 if (c != BUF_FLUSH)
 	buf[d++] = c;
 return (1);
