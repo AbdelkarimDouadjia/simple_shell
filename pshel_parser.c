@@ -9,11 +9,11 @@
 int is_comoodd(info_s *inf, char *path)
 {
 	struct stat st;
-	
+
 	(void)inf;
 	if (!path || stat(path, &st))
 	return (0);
-	
+
 	if (st.st_mode & S_IFREG)
 	{
 	return (1);
