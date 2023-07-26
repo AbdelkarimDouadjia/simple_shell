@@ -28,13 +28,13 @@ while (r != -1 && builtin_ret != -2)
 	else if (activitated(inf))
 		_puuchir('\n');
 	fee_inff(inf, 0);
-	
+
 }
 wriitc_eaphistory(inf);
 fee_inff(inf, 1);
 if (!activitated(inf) && inf->status)
 	exit(inf->status);
-	
+
 if (builtin_ret == -2)
 {
 	if (inf->err_num == -1)
@@ -45,14 +45,14 @@ return (builtin_ret);
 }
 
 /**
- ** builtinco_fins - Serach for command that has a builtin.
- **
- ** @inf: the parameter & return info struct
- ** Return: if (2) the signal has function exit,
- ** 	else if (1) we get builtin incorect,
- ** 	else if (0) we execut correctly,
- ** 	else if (-1) we dont find any builtin funct.
- **/
+** builtinco_fins - Serach for command that has a builtin.
+**
+** @inf: the parameter & return info struct
+** Return: if (2) the signal has function exit,
+**	else if (1) we get builtin incorect,
+**	else if (0) we execut correctly,
+**	else if (-1) we dont find any builtin funct.
+*/
 int builtinco_fins(info_s *inf)
 {
 int d, buuilt_i__r = -1;
@@ -69,7 +69,7 @@ bilttin_tal bultntl[] = {
 	{NULL, NULL}
 };
 for (d = 0; bultntl[d].type; d++)
-	
+
 	if (_strcmp(inf->argv[0], bultntl[d].type) == 0)
 {
 		inf->line_count++;
@@ -110,7 +110,8 @@ if (path)
 }
 	else
 	{
-		if ((activitated(inf) || _getevv(inf, "PATH=") || inf->argv[0][0] == '/') && is_comoodd(inf, inf->argv[0]))
+if ((activitated(inf) || _getevv(inf, "PATH=") || inf->argv[0][0] == '/')
+		&& is_comoodd(inf, inf->argv[0]))
 			for_ocmand(inf);
 		else if (*(inf->arg) != '\n')
 		{
