@@ -1,40 +1,38 @@
 #include "shell.h"
 
 /**
- * get_history_file - gets the history file
- * @info: parameter struct
- *
- * Return: allocated string containg history file
- */
+ ** git_histoir_fi - obtains the histrique files
+ ** @inf: struct argum.
+ ** Return:  historique of the file in the allocated string .
+ **/
 
-char *get_history_file(info_t *info)
+char *git_histoir_fi(info_s *inf)
 {
 	char *buf, *dir;
 
-	dir = _getenv(info, "HOME=");
+	dir = _getevv(inf, "HOME=");
 	if (!dir)
 		return (NULL);
-	buf = malloc(sizeof(char) * (_strlen(dir) + _strlen(HIST_FILE) + 2));
+	buf = malloc(sizeof(char) * (_stlesn(dir) + _stlesn(HIST_FILE) + 2));
 	if (!buf)
 		return (NULL);
 	buf[0] = 0;
-	_strcpy(buf, dir);
-	_strcat(buf, "/");
-	_strcat(buf, HIST_FILE);
+	_stcocp(buf, dir);
+	_stceat(buf, "/");
+	_stceat(buf, HIST_FILE);
 	return (buf);
 }
 
 /**
- * write_history - creates a file, or appends to an existing file
- * @info: the parameter struct
- *
- * Return: 1 on success, else -1
+ * wriitc_eaphistory - appends or changes a file to exist one.
+ * @inf: structure argument
+ * Return: 1 correct ;-1 otherwise
  */
-int write_history(info_t *info)
+int wriitc_eaphistory(info_ *inf)
 {
 	ssize_t fd;
-	char *filename = get_history_file(info);
-	list_t *node = NULL;
+	char *filename = git_histoir_fi(inf);
+	list_s *node = NULL;
 
 	if (!filename)
 		return (-1);
@@ -43,28 +41,27 @@ int write_history(info_t *info)
 	free(filename);
 	if (fd == -1)
 		return (-1);
-	for (node = info->history; node; node = node->next)
+	for (node = inf->history; node; node = node->next)
 	{
-		_putsfd(node->str, fd);
-		_putfd('\n', fd);
+		_pufstd(node->str, fd);
+		_pufiudf('\n', fd);
 	}
-	_putfd(BUF_FLUSH, fd);
+	_pufiudf(BUF_FLUSH, fd);
 	close(fd);
 	return (1);
 }
 
 /**
- * read_history - reads history from file
- * @info: the parameter struct
- *
- * Return: histcount on success, 0 otherwise
+ * reed_hihist - reades historique from the files.
+ * @info: structure Argu
+ * Return: correct if histcount,else  0.
  */
-int read_history(info_t *info)
+int reed_hihist(info_s *inf)
 {
-	int i, last = 0, linecount = 0;
+	int h, last = 0, linecount = 0;
 	ssize_t fd, rdlen, fsize = 0;
 	struct stat st;
-	char *buf = NULL, *filename = get_history_file(info);
+	char *buf = NULL, *filename = git_histoir_fi(inf);
 
 	if (!filename)
 		return (0);
@@ -85,60 +82,58 @@ int read_history(info_t *info)
 	if (rdlen <= 0)
 		return (free(buf), 0);
 	close(fd);
-	for (i = 0; i < fsize; i++)
-		if (buf[i] == '\n')
+	for (h = 0; h < fsize; h++)
+		if (buf[h] == '\n')
 		{
-			buf[i] = 0;
-			build_history_list(info, buf + last, linecount++);
-			last = i + 1;
+			buf[h] = 0;
+			buil_ddhs_ls(inf, buf + last, linecount++);
+			last = h + 1;
 		}
-	if (last != i)
-		build_history_list(info, buf + last, linecount++);
+	if (last != h)
+		buil_ddhs_ls(inf, buf + last, linecount++);
 	free(buf);
-	info->histcount = linecount;
-	while (info->histcount-- >= HIST_MAX)
-		delete_node_at_index(&(info->history), 0);
-	renumber_history(info);
-	return (info->histcount);
+	inf->histcount = linecount;
+	while (inf->histcount-- >= HIST_MAX)
+		rmove_node_at_index(&(inf->history), 0);
+	remun_hest(inf);
+	return (inf->histcount);
 }
 
 /**
- * build_history_list - adds entry to a history linked list
- * @info: Structure containing potential arguments. Used to maintain
- * @buf: buffer
- * @linecount: the history linecount, histcount
- *
- * Return: Always 0
+ * buil_ddhs_ls - create an entry at histoire (linked-list).
+ * @inf: Struct containe potential of argums .
+ * @buf: bufers
+ * @linecount: linecount of the histoire or histcount var.
+ * Return:  opposite of 1.
  */
-int build_history_list(info_t *info, char *buf, int linecount)
+int buil_ddhs_ls(info_s *inf, char *buf, int linecount)
 {
-	list_t *node = NULL;
+	list_t *nod = NULL;
 
-	if (info->history)
-		node = info->history;
-	add_node_end(&node, buf, linecount);
+	if (inf->history)
+		nod = inf->history;
+	nodd_add_end(&nod, buf, linecount);
 
-	if (!info->history)
-		info->history = node;
+	if (!inf->history)
+		inf->history = nod;
 	return (0);
 }
 
 /**
- * renumber_history - renumbers the history linked list after changes
- * @info: Structure containing potential arguments. Used to maintain
- *
- * Return: the new histcount
- */
-int renumber_history(info_t *info)
+ * remun_hest - the revisions, is histoire of (linked-list) on renumber.
+ * @inf: an struct containe potential argums.
+ * Return: updated of histcount var.
+ */ 
+int remun_hest(info_s *inf)
 {
-	list_t *node = info->history;
+	list_t *nod = inf->history;
 	int i = 0;
 
-	while (node)
+	while (nod)
 	{
-		node->num = i++;
-		node = node->next;
+		nod->num = i++;
+		nod = nod->next;
 	}
-	return (info->histcount = i);
+	return (inf->histcount = i);
 }
 
