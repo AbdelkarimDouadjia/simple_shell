@@ -5,7 +5,7 @@
  ** @inf: struct containe potential arguments
  **  Return: Always 0
  **/
-int _mihist(inf_s *inf)
+int _mihist(info_s *inf)
 {
 	priin_liss(inf->history);
 	return (0);
@@ -18,7 +18,7 @@ int _mihist(inf_s *inf)
  *
  * Return: (0) if success, (1) otherways on error
  */
-int unseter_aliass(info_t *inf, char *strr)
+int unseter_aliass(info_s *inf, char *strr)
 {
 	char *p, c;
 	int ret;
@@ -87,7 +87,7 @@ int _mihelpalias(info_s *inf)
 {
 	int v = 0;
 	char *p = NULL;
-	list_t *nod = NULL;
+	list_s *nod = NULL;
 
 	if (inf->argc == 1)
 	{
@@ -99,7 +99,7 @@ int _mihelpalias(info_s *inf)
 		}
 		return (0);
 	}
-	for (v = 1; info->argv[v]; v++)
+	for (v = 1; inf->argv[v]; v++)
 	{
 		p = _tischr(inf->argv[v], '=');
 		if (p)
