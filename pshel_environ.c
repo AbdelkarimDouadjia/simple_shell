@@ -46,7 +46,7 @@ int _misetrevv(info_s *inf)
 		_epputss("Incorrect number of arguements\n");
 		return (1);
 	}
-	if (_sinitenva(inf, inf->argv[1], inf->argv[2]))//
+	if(_sinitenva(inf, inf->argv[1], inf->argv[2]))
 		return (0);
 	return (1);
 }
@@ -75,7 +75,7 @@ int _miunssotenvv(info_s *inf)
 /**
  * evv_populate_lis - populates env files en linked list
  * @inf: Argument with possible arguments.
- *  	used to retain the prototype of  const funct
+ * used to retain the prototype of  const funct
  * Return: 0
  */
 int evv_populate_lis(info_s *inf)
