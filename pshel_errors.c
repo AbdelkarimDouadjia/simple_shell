@@ -44,7 +44,7 @@ int _charpiit(char h)
 /**
  * _pufiudf - writes the Char c in the specfic fd.
  * @h: The txt will be printed.
- * @fd: adress to writed to it	
+ * @fd: adress to writed to it
  * Return:  1 if correct answser 1.
  * Otherways else an returned -1.
  */
