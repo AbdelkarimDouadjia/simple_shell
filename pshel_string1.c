@@ -8,16 +8,16 @@
  **/
 char *_stcocp(char *dest, char *src)
 {
-
 	int d = 0;
-if (dest == src || src == 0)
-	return (dest);
+
+	if (dest == src || src == 0)
+		return (dest);
 	while (src[d])
 	{
 		dest[d] = src[d];
 		d++;
 	}
-dest[d] = 0;
+	dest[d] = 0;
 	return (dest);
 }
 
