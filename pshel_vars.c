@@ -125,11 +125,11 @@ if (!_stcmmp(inf->argv[h], "$?"))
 }
 	if (!_stcmmp(inf->argv[h], "$$"))
 	{
-					cahnge_strr(&(inf->argv[h]),
-							_strtprp(converr_nuum(getpid(), 10, 0)));
-					continue;
-				}
-		noe = start_nodd_wi(inf->env, &inf->argv[h][1], '=');
+		cahnge_strr(&(inf->argv[h]),
+		_strtprp(converr_nuum(getpid(), 10, 0)));
+		continue;
+	}
+	noe = start_nodd_wi(inf->env, &inf->argv[h][1], '=');
 if (noe)
 {
 	cahnge_strr(&(inf->argv[h]),
