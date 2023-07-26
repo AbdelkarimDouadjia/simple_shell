@@ -43,7 +43,7 @@ extern char **environ;
  ** @num: index of the number input
  ** @str: char or (String)
  ** @next: next case pointered (node) 
- **/
+*/
 typedef struct list_str
 {
 	int num;
@@ -56,8 +56,8 @@ typedef struct list_str
 ** allowing uniform prototype for function pointer struct
  ** @arg: an arguments string generated from getline
  ** @argv: arg generated from an array of stringd
- ** @path: the path for the same comm,
- ** @argc: the count has a parameter 
+ ** @path: the path for the same comm
+ ** @argc: the count has a parameter
  ** @line_count:  failure count error
  ** @err_num: the exit()s function return error code
  ** @linecount_flag:  check the count var if on the input field line
@@ -89,13 +89,11 @@ typedef struct pasinfo
 	char **environ;
 	int env_changed;
 	int status;
-
-	char **cmd_buf; 
-	int cmd_buf_type; 
+	char **cmd_buf;
+	int cmd_buf_type;
 	int readfd;
 	int histcount;
 }info_s;
-
 #define INFO_INIT \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
 		0, 0, 0}
@@ -111,134 +109,125 @@ typedef struct builtin
 	int (*func)(info_s *);
 } bilttin_tal;
 
+int _pufstd(char *str, int fd);
+char *fedn_puht(info_s *, char *, char *);
+char *chaa_rdupp(char *, int, int);
 
-int _pufstd(char *str, int fd); // 
-char *fedn_puht(info_s *, char *, char *); //
-char *chaa_rdupp(char *, int, int); //
-
-int is_comoodd(info_s *, char *); //
-void fin_dcomnd(info_s *); //
+int is_comoodd(info_s *, char *);
+void fin_dcomnd(info_s *);
 
 int loophsh(char **);
-void for_ocmand(info_s *); //
-int hsh(info_s *, char **); //hsh
-int _charpiit(char); // 
+void for_ocmand(info_s *);
+int hsh(info_s *, char **);
+int _charpiit(char);
 
 
 
-void _epputss(char *); //
-int _pufiudf(char c, int fd); //
+void _epputss(char *);
+int _pufiudf(char c, int fd);
 
-char *_stceat(char *, char *);//
-int _stcmmp(char *, char *);//
-int builtinco_fins(info_s *); //
-char *_stcocp(char *, char *);//
-char *strest_wit(const char *, const char *); //
-
-
-
-int _puuchir(char);//
-int _stlesn(char *);//
-char **stoiww2(char *, char);//
-char *_strtprp(const char *);//
-char *_srtingcp(char *, char *, int);//
-
-
-void _puutss(char *);//
-char *_copncastr(char *, char *, int); //
-void *_reellocc(void *, unsigned int, unsigned int);//
-
-
-char **stoiww(char *, char *);//
-
-char *_memfilsetl(char *, char, unsigned int);//
-void del_frre(char **);//
-char *_tischr(char *, char); //
-
-
-int alph_is(int); //
-int bf_fer(void **);//
-
-
-int _mihelyp(info_s *);//
-int del_is(char, char *); //
-int str_oint(char *); // 
-int is_atio(char *); //
-
-void sign_Hand(int);//
-void errorp_rint(info_s *, char *); //
-
-char *converr_nuum(long int, int, int); //
-int activitated(info_s *); //
-void comments_replace(char *);//
+char *_stceat(char *, char *);
+int _stcmmp(char *, char *);
+int builtinco_fins(info_s *);
+char *_stcocp(char *, char *);
+char *strest_wit(const char *, const char *);
 
 
 
-int exi_mi(info_s *); //
-int _micded(info_s *); //
-int decc_print(int, int); //
+int _puuchir(char);
+int _stlesn(char *);
+char **stoiww2(char *, char);
+char *_strtprp(const char *);
+char *_srtingcp(char *, char *, int);
+
+
+void _puutss(char *);
+char *_copncastr(char *, char *, int);
+void *_reellocc(void *, unsigned int, unsigned int);
+
+
+char **stoiww(char *, char *);
+
+char *_memfilsetl(char *, char, unsigned int);
+void del_frre(char **);
+char *_tischr(char *, char);
+
+
+int alph_is(int);
+int bf_fer(void **);
+
+
+int _mihelyp(info_s *);
+int del_is(char, char *);
+int str_oint(char *);
+int is_atio(char *);
+
+void sign_Hand(int);
+void errorp_rint(info_s *, char *);
+
+char *converr_nuum(long int, int, int);
+int activitated(info_s *);
+void comments_replace(char *);
 
 
 
-int reed_hihist(info_s *info); //
-int _mihist(info_s *);//
-
-
-ssize_t gis_inptu(info_s *); //
-int _mihelpalias(info_s *); //
-int _geline(info_s *, char **, size_t *); //
+int exi_mi(info_s *);
+int _micded(info_s *);
+int decc_print(int, int);
 
 
 
-void settin_inf(info_s *, char **);//
-void fee_inff(info_s *, int);//
-int _mievnv(info_s *); //
-int evv_populate_lis(info_s *); //
-char *_getevv(info_s *, const char *); //
-int _miunssotenvv(info_s *); //
-int _misetrevv(info_s *); //
+int reed_hihist(info_s *info);
+int _mihist(info_s *);
+
+
+ssize_t gis_inptu(info_s *);
+int _mihelpalias(info_s *);
+int _geline(info_s *, char **, size_t *);
+
+
+
+void settin_inf(info_s *, char **);
+void fee_inff(info_s *, int);
+int _mievnv(info_s *);
+int evv_populate_lis(info_s *);
+char *_getevv(info_s *, const char *);
+int _miunssotenvv(info_s *);
+int _misetrevv(info_s *);
 
 
 
 
-
-char *git_histoir_fi(info_s *info);//
-int wriitc_eaphistory(info_s *info);//
-int buil_ddhs_ls(info_s *info, char *buf, int linecount); //
-void del_inf(info_s *);//
-int remun_hest(info_s *info);//
-
-
-void frfee_lis(list_s **);//
-size_t prin_li_stt(const list_s *); //
-list_s *adnd_nod(list_s **, const char *, int);//
-int rmove_node_at_index(list_s **, unsigned int); //
-list_s *nodd_add_end(list_s **, const char *, int); //
+char *git_histoir_fi(info_s *inf);
+int wriitc_eaphistory(info_s *inf);
+int buil_ddhs_ls(info_s *inf, char *buf, int linecount);
+void del_inf(info_s *);
+int remun_hest(info_s *inf);
 
 
-
-char **liss_to_str(list_s *); //
-size_t liss_lengs(const list_s *);//
-ssize_t gitt_index_index(list_s *, list_s *); //
-list_s *start_nodd_wi(list_s *, char *, char);//
-size_t priin_liss(const list_s *); //
-
-
-void chic_char(info_s *, char *, size_t *, size_t, size_t); //
-int is_chair(info_s *, char *, size_t *); //
-int chang_alia(info_s *);//
-int cahnge_strr(char **, char *); //
-int change_ver(info_s *);//
-
-int _rmounsetenvv(info_s *, char *); //
-char **envr_git(info_s *);//
-int _sinitenva(info_s *, char *, char *); // ???
+void frfee_lis(list_s **);
+size_t prin_li_stt(const list_s *);
+list_s *adnd_nod(list_s **, const char *, int);
+int rmove_node_at_index(list_s **, unsigned int);
+list_s *nodd_add_end(list_s **, const char *, int);
 
 
-// unseter_aliass(info_s *info, char *name); //
-// alia_sett(info_s *info, char *name, char *value); //
-// strings_print_alias(info_s *info); //
-// ssize_t inpu_buff(info_t *info, char **buf, size_t *len) //
-// buff_reead(info_t *info, char **buf, size_t *len) //
+
+char **liss_to_str(list_s *);
+size_t liss_lengs(const list_s *);
+ssize_t gitt_index_index(list_s *, list_s *);
+list_s *start_nodd_wi(list_s *, char *, char);
+size_t priin_liss(const list_s *);
+
+
+void chic_char(info_s *, char *, size_t *, size_t, size_t);
+int is_chair(info_s *, char *, size_t *);
+int chang_alia(info_s *);
+int cahnge_strr(char **, char *);
+int change_ver(info_s *);
+
+int _rmounsetenvv(info_s *, char *);
+char **envr_git(info_s *);
+int _sinitenva(info_s *, char *, char *);
 
 #endif
