@@ -53,7 +53,7 @@ int wriitc_eaphistory(info_ *inf)
 
 /**
  * reed_hihist - reades historique from the files.
- * @info: structure Argu
+ * @inf: structure Argu
  * Return: correct if histcount,else  0.
  */
 int reed_hihist(info_s *inf)
