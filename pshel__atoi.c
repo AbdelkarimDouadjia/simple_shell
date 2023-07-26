@@ -72,4 +72,3 @@ int is_atio(char *t)
 
 	return (outp);
 }
-
