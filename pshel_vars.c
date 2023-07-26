@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * is_chair - check is the current car in buffes is delimeter char or not
+ * is_chair - check if is the current car in buffes is delimeter char or not
  * @inf:  the structure argum.
  * @buf: a buffes charactere
  * @p: location adress on the memory of the current buffes
