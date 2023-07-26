@@ -123,7 +123,7 @@ int buil_ddhs_ls(info_s *inf, char *buf, int linecount)
  * remun_hest - the revisions, is histoire of (linked-list) on renumber.
  * @inf: an struct containe potential argums.
  * Return: updated of histcount var.
- */ 
+*/
 int remun_hest(info_s *inf)
 {
 	list_t *nod = inf->history;
