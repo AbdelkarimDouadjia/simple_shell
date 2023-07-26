@@ -18,7 +18,7 @@ return (d);
 }
 
 /**
- * liss_to_str - gives us  a list of multiple 
+ * liss_to_str - gives us  a list of multiple
  *		strings using the list->str funct.
  * @head: the begin node has been pointered
  * Return: multiples of strings.
@@ -77,7 +77,8 @@ return (d);
 }
 
 /**
-* start_nodd_wi - Gives an element node to whose string begin with prefix element.
+* start_nodd_wi - Gives an element node to whose
+*		string begin with prefix element.
 * @noe: elemn of the begin head of linked-list
 * @prefix: matching the begin strings.
 * @c: will pick char after prefix characteres and will matching it.
