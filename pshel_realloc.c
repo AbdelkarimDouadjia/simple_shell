@@ -24,7 +24,7 @@ void del_frre(char **pp)
 char **a = pp;
 if (!pp)
 	return;
-	
+
 while (*pp)
 	free(*pp++);
 free(a);
@@ -33,7 +33,7 @@ free(a);
 /**
  * _reellocc - block of memory has been a reallocated.
  * @ptr: the previous has identifier on mallc'd block in memory
- * @old_size: byte size of previous block/ previos block in memory has byte length on it.
+ * @old_size: previos block in memory has byte length on it.
  * @new_size: create block in leng of byte.
  * Return: pointer to da ol'block nameen.
  */
@@ -54,7 +54,7 @@ old_size = old_size < new_size ? old_size : new_size;
 while (old_size--)
 	p[old_size] = ((char *)ptr)[old_size];
 free(ptr);
-	
+
 return (p);
 }
 
