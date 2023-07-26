@@ -40,7 +40,7 @@ int alph_is(int a)
 
 /**
  ** is_atio - change a chaine of string to an interger
- ** @s: transformed the string
+ ** @t: transformed the string
  ** Return: 0 if string has not any numbers, else converte the number.
  **/
 
