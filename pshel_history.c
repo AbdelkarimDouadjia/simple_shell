@@ -28,7 +28,7 @@ char *git_histoir_fi(info_s *inf)
  * @inf: structure argument
  * Return: 1 correct ;-1 otherwise
  */
-int wriitc_eaphistory(info_ *inf)
+int wriitc_eaphistory(info_s *inf)
 {
 	ssize_t fd;
 	char *filename = git_histoir_fi(inf);
@@ -108,7 +108,7 @@ int reed_hihist(info_s *inf)
  */
 int buil_ddhs_ls(info_s *inf, char *buf, int linecount)
 {
-	list_t *nod = NULL;
+	list_s *nod = NULL;
 
 	if (inf->history)
 		nod = inf->history;
@@ -126,7 +126,7 @@ int buil_ddhs_ls(info_s *inf, char *buf, int linecount)
 */
 int remun_hest(info_s *inf)
 {
-	list_t *nod = inf->history;
+	list_s *nod = inf->history;
 	int i = 0;
 
 	while (nod)
