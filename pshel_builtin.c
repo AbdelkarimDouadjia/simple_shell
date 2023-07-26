@@ -3,14 +3,13 @@
 /**
  ** exi_mi - the shell exist
  ** @inf: struct contain petential argu and use the const func prototype
- ** Return: exits with the exit  
+ ** Return: exits with the exit
  ** if 0 is the info.argv[0]!= "exit"
  **/
 int exi_mi(info_s *inf)
 {
 	int exiverifie;
-
-	if (inf->argv[1]) 
+	if(inf->argv[1])
 	{
 		exiverifie = str_oint(inf->argv[1]);
 		if (exiverifie == -1)
