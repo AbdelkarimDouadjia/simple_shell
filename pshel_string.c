@@ -7,23 +7,24 @@
  */
 int _stlesn(char *s)
 {
-	
+
 int d = 0;
 if (!s)
 	return (0);
 
-	
+
 while (*s++)
 	d++;
 return (d);
 }
 
 /**
- ** _stcmmp - performs lexicogarphic comparison of two strangs. / comparing the two entry strings on the parameters.
+ ** _stcmmp - comparing the two entry strings on the parameters.
  ** @s1: a 1 strang
  ** @s2: a 2 strang
  **
- ** Return: (0) is they equal s1 === s2, else nergative if (s1 < s2), otherwise we get positive on (s1 > s2).
+ ** Return: (0) is they equal s1 === s2, else nergative if (s1 < s2),
+ ** otherwise we get positive on (s1 > s2).
  **/
 int _stcmmp(char *s1, char *s2)
 {
@@ -34,28 +35,24 @@ while (*s1 && *s2)
 	s1++;
 	s2++;
 }
-	if (*s1 == *s2){
+	if (*s1 == *s2)
 		return (0);
-		
-	}else{
+	else
 		return (*s1 < *s2 ? -1 : 1);
-}
 }
 
 /**
- * strest_wit - verifie to needle the begin stackhay. 
+ * strest_wit - verifie to needle the begin stackhay.
  * @haystack: we need to find the string
  * @needle: we need to search the substring in the begin
  * Return: next charactere address on the memory has haystack or NULL
- */
+*/
 char *strest_wit(const char *haystack, const char *needle)
 {
-	
+
 while (*needle)
 	if (*needle++ != *haystack++)
-	return (NULL);
-
-	
+		return (NULL);
 	return ((char *)haystack);
 }
 
@@ -68,12 +65,12 @@ while (*needle)
 char *_stceat(char *dest, char *src)
 {
 	char *ret = dest;
-while (*dest)
-	dest++;
-	
-		while (*src)
-	*dest++ = *src++;
-*dest = *src;
-			return (ret);
+
+	while (*dest)
+		dest++;
+	while (*src)
+		*dest++ = *src++;
+	*dest = *src;
+	return (ret);
 }
 
