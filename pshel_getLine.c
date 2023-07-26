@@ -26,7 +26,7 @@ ssize_t inpu_buff(info_s *inf, char **buf, size_t *len)
 		{
 			if ((*buf)[r - 1] == '\n')
 			{
-				(*buf)[r - 1] = '\0'; 
+				(*buf)[r - 1] = '\0';
 				r--;
 			}
 			inf->linecount_flag = 1;
@@ -48,22 +48,21 @@ ssize_t inpu_buff(info_s *inf, char **buf, size_t *len)
  */
 ssize_t gts_inpu(info_s *inf)
 {
-	static char *buf; 
+	static char *buf;
 	static size_t v, w, len;
 	ssize_t r = 0;
 	char **buf_p = &(inf->arg), *p;
-
 	_puuchir(BUF_FLUSH);
 	r = inpu_buff(inf, &buf, &len);
 	if (r == -1) 
 		return (-1);
 	if (len)
 	{
-		w = v; 
+		w = v;
 		p = buf + v;
 
 		chic_char(inf, buf, &w, v, len);
-		while (w < len) 
+		while (w < len)
 		{
 			if (is_chair(inf, buf, &w))
 				break;
@@ -71,26 +70,26 @@ ssize_t gts_inpu(info_s *inf)
 		}
 
 		v = w + 1; 
-		if (v >= len) 
+		if (v >= len)
 		{
-			v = len = 0; 
+			v = len = 0;
 			inf->cmd_buf_type = CMD_NORM;
 		}
 
-		*buf_p = p; 
+		*buf_p = p;
 		return (_stlesn(p));
 	}
 
-	*buf_p = buf; 
-	return (r); 
+	*buf_p = buf;
+	return (r);
 }
-/**
- ** buff_reead - reeads an article for buffer
- ** @inf: var struct
- ** @buf: bufers
- ** @h: siz
- ** Return: r
- **/
+/*
+** buff_reead - reeads an article for buffer
+** @inf: var struct
+** @buf: bufers
+** @h: siz
+** Return: r
+*/
 ssize_t buff_reead(info_s *inf, char *buf, size_t *h)
 {
 	ssize_t r = 0;
@@ -131,9 +130,8 @@ int _geline(info_s *inf, char **ptr, size_t *length)
 	c = _tischr(buf + h, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
 	new_p = _reellocc(p, s, s ? s + k : k + 1);
-	if (!new_p) 
+	if (!new_p)
 		return (p ? free(p), -1 : -1);
-
 	if (s)
 		_copncastr(new_p, buf + h, k - h);
 	else
