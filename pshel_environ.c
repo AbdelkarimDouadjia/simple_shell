@@ -46,7 +46,7 @@ int _misetrevv(info_s *inf)
 		_epputss("Incorrect number of arguements\n");
 		return (1);
 	}
-	if(_sinitenva(inf, inf->argv[1], inf->argv[2]))
+	if (_sinitenva(inf, inf->argv[1], inf->argv[2]))
 		return (0);
 	return (1);
 }
