@@ -9,7 +9,7 @@ char **envr_git(info_s *inf)
 {
 	if (!inf->environ || inf->env_changed)
 	{
-		inf->environ = list_to_strings(inf->env);
+		inf->environ = liss_to_str(inf->env);
 		inf->env_changed = 0;
 	}
 
