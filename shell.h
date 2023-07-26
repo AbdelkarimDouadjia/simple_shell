@@ -51,7 +51,7 @@ typedef struct list_str
 } list_s;
 
 /**
- ** struct passinfo - has to pass funct ptrs to functions as an arguement,
+ ** struct pasinfo - has to pass funct ptrs to functions as an arguement,
 ** allowing uniform prototype for function pointer struct
  ** @arg: an arguments string generated from getline
  ** @argv: arg generated from an array of stringd
