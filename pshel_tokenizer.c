@@ -23,7 +23,7 @@ for (h = 0; strr[h] != '\0'; h++)
 if (numwords == 0)
 	return (NULL);
 
-	
+
 s = malloc((1 + numwords) * sizeof(char *));
 
 	if (!s)
@@ -34,41 +34,41 @@ s = malloc((1 + numwords) * sizeof(char *));
 			h++;
 		k = 0;
 		while (!del_is(strr[h + k], d) && strr[h + k])
-						k++;
-					s[w] = malloc((k + 1) * sizeof(char));
-					if (!s[w])
-					{
-						for (k = 0; k < w; k++)
-							free(s[k]);
-						free(s);
-						return (NULL);
-					}
-					for (m = 0; m < k; m++)
-						s[w][m] = strr[h++];
-					s[w][m] = 0;
+			k++;
+			s[w] = malloc((k + 1) * sizeof(char));
+			if (!s[w])
+			{
+				for (k = 0; k < w; k++)
+					free(s[k]);
+				free(s);
+				return (NULL);
 			}
-s[w] = NULL;
-return (s);
+			for (m = 0; m < k; m++)
+				s[w][m] = strr[h++];
+			s[w][m] = 0;
+			}
+	s[w] = NULL;
+	return (s);
 }
 
 /**
  * **stoiww2 - separe the entry string into a small words.
- * @strr: store the entry string 
+ * @strr: store the entry string
  * @d: the entry string has been delimeter.
  * Return: gives us a NULL or s entry string in array pointered on memory
  */
 char **stoiww2(char *strr, char d)
 {
-	
+
 	int h, w, f, m, numwords = 0;
-	
+
 	char **s;
 if (strr == NULL || strr[0] == 0)
 	return (NULL);
 for (h = 0; strr[h] != '\0'; h++)
 	if ((strr[h] != d && strr[h + 1] == d) ||
 			    (strr[h] != d && !strr[h + 1]) || strr[h + 1] == d)
-		numwords++;
+				numwords++;
 	if (numwords == 0)
 		return (NULL);
 	s = malloc((1 + numwords) * sizeof(char *));
@@ -84,18 +84,18 @@ while (strr[h + f] != d && strr[h + f] && strr[h + f] != d)
 s[w] = malloc((f + 1) * sizeof(char));
 
 
-		if (!s[w])
-		{
-				for (f = 0; f < w; f++)
-							free(s[f]);
-			free(s);
-			return (NULL);
-		}
-		for (m = 0; m < f; m++)
-			s[w][m] = strr[h++];
-		s[w][m] = 0;
-	}
-	s[w] = NULL;
-	return (s);
+if (!s[w])
+{
+	for (f = 0; f < w; f++)
+		free(s[f]);
+	free(s);
+	return (NULL);
+}
+for (m = 0; m < f; m++)
+	s[w][m] = strr[h++];
+s[w][m] = 0;
+}
+s[w] = NULL;
+return (s);
 }
 
