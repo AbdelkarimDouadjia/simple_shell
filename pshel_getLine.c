@@ -55,7 +55,7 @@ ssize_t gts_inpu(info_s *inf)
 
 	_puuchir(BUF_FLUSH);
 	r = inpu_buff(inf, &buf, &len);
-	if (r == -1) 
+	if (r == -1)
 		return (-1);
 	if (len)
 	{
@@ -69,7 +69,7 @@ ssize_t gts_inpu(info_s *inf)
 				break;
 			w++;
 		}
-		v = w + 1; 
+		v = w + 1;
 		if (v >= len)
 		{
 			v = len = 0;
