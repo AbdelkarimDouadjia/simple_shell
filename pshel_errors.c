@@ -14,7 +14,7 @@ void _epputss(char *strr)
 		return;
 	while (strr[v] != '\0')
 	{
-		_charpiit(str[v]);
+		_charpiit(strr[v]);
 		v++;
 	}
 }
@@ -78,7 +78,7 @@ int _pufstd(char *strr, int fd)
 		return (0);
 	while (*strr)
 	{
-		f += _pufiudf(*str++, fd);
+		f += _pufiudf(*strr++, fd);
 	}
 	return (f);
 }
