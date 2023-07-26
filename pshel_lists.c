@@ -36,13 +36,13 @@ return (new__head);
 /**
  * nodd_add_end - adds at the final of the list a node .
  * @head: head adresse pointered to the node
- * @str: field of the node (str).
+ * @strr: field of the node (str).
  * @num: Histoire of node index's .
  * Return: len of linked list
  */
-list_s *add_node_end(list_s **head, const char *strr, int num)
+list_s *nodd_add_end(list_s **head, const char *strr, int num)
 {
-list_s *new__node, *nod;
+	list_s *new__node, *nod;
 
 if (!head)
 	return (NULL);
