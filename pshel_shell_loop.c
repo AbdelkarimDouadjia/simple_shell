@@ -111,7 +111,7 @@ if (path)
 	else
 	{
 if ((activitated(inf) || _getevv(inf, "PATH=") || inf->argv[0][0] == '/')
-&& is_comoodd(inf, inf->argv[0]))
+										&& is_comoodd(inf, inf->argv[0]))
 			for_ocmand(inf);
 		else if (*(inf->arg) != '\n')
 		{
