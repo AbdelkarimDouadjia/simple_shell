@@ -1,161 +1,161 @@
 #include "shell.h"
 
 /**
- * hsh - main shell loop
- * @info: the parameter & return info struct
- * @av: the argument vector from main()
- *
- * Return: 0 on success, 1 on error, or error code
- */
-int hsh(info_t *info, char **av)
+ ** hsh - the general main looped shell function.
+ ** @inf: return structure data information & thier argu.
+ ** @av: from the general main() funct has verctor as an parametere .
+ ** Return: 0 if correct ,otherwise is 1 when error.
+ **/
+int hsh(info_s *inf, char **av)
 {
-	ssize_t r = 0;
-	int builtin_ret = 0;
+ssize_t r = 0;
+int builtin_ret = 0;
 
-	while (r != -1 && builtin_ret != -2)
+while (r != -1 && builtin_ret != -2)
+{
+	del_inf(inf);
+	if (activitated(inf))
+		_puutss("$ ");
+	_charpiit(BUF_FLUSH);
+	r = gis_inptu(inf);
+	if (r != -1)
 	{
-		clear_info(info);
-		if (interactive(info))
-			_puts("$ ");
-		_eputchar(BUF_FLUSH);
-		r = get_input(info);
-		if (r != -1)
-		{
-			set_info(info, av);
-			builtin_ret = find_builtin(info);
-			if (builtin_ret == -1)
-				find_cmd(info);
-		}
-		else if (interactive(info))
-			_putchar('\n');
-		free_info(info, 0);
+		settin_inf(inf, av);
+		builtin_ret = builtinco_fins(inf);
+		if (builtin_ret == -1)
+			fin_dcomnd(inf);
 	}
-	write_history(info);
-	free_info(info, 1);
-	if (!interactive(info) && info->status)
-		exit(info->status);
-	if (builtin_ret == -2)
-	{
-		if (info->err_num == -1)
-			exit(info->status);
-		exit(info->err_num);
-	}
-	return (builtin_ret);
+	else if (activitated(inf))
+		_puuchir('\n');
+	fee_inff(inf, 0);
+	
+}
+wriitc_eaphistory(inf);
+fee_inff(inf, 1);
+if (!activitated(inf) && inf->status)
+	exit(inf->status);
+	
+if (builtin_ret == -2)
+{
+	if (inf->err_num == -1)
+		exit(inf->status);
+	exit(inf->err_num);
+}
+return (builtin_ret);
 }
 
 /**
- * find_builtin - finds a builtin command
- * @info: the parameter & return info struct
- *
- * Return: -1 if builtin not found,
- * 	0 if builtin executed successfully,
- * 	1 if builtin found but not successful,
- * 	2 if builtin signals exit()
- */
-int find_builtin(info_t *info)
+ ** builtinco_fins - Serach for command that has a builtin.
+ **
+ ** @inf: the parameter & return info struct
+ ** Return: if (2) the signal has function exit,
+ ** 	else if (1) we get builtin incorect,
+ ** 	else if (0) we execut correctly,
+ ** 	else if (-1) we dont find any builtin funct.
+ **/
+int builtinco_fins(info_s *inf)
 {
-	int i, built_in_ret = -1;
-	builtin_table builtintbl[] = {
-		{"exit", _myexit},
-		{"env", _myenv},
-		{"help", _myhelp},
-		{"history", _myhistory},
-		{"setenv", _mysetenv},
-		{"unsetenv", _myunsetenv},
-		{"cd", _mycd},
-		{"alias", _myalias},
-		{NULL, NULL}
-	};
+int d, buuilt_i__r = -1;
 
-	for (i = 0; builtintbl[i].type; i++)
-		if (_strcmp(info->argv[0], builtintbl[i].type) == 0)
-		{
-			info->line_count++;
-			built_in_ret = builtintbl[i].func(info);
-			break;
-		}
-	return (built_in_ret);
+bilttin_tal bultntl[] = {
+	{"exit", exi_mi},
+	{"env", _mievnv},
+	{"help", _mihelyp},
+	{"history", _mihist},
+	{"setenv", _misetrevv},
+	{"unsetenv", _miunssotenvv},
+	{"cd", _micded},
+	{"alias", _mihelpalias},
+	{NULL, NULL}
+};
+for (d = 0; bultntl[d].type; d++)
+	
+	if (_strcmp(inf->argv[0], bultntl[d].type) == 0)
+{
+		inf->line_count++;
+		buuilt_i__r = bultntl[d].func(inf);
+	break;
+	}
+
+return (buuilt_i__r);
 }
 
 /**
- * find_cmd - finds a command in PATH
- * @info: the parameter & return info struct
- *
- * Return: void
- */
-void find_cmd(info_t *info)
+ ** fin_dcomnd - Search a link path for commandes .
+ ** @inf: it return a structure data of information & argum.
+ ** Return: nothing
+ **/
+void fin_dcomnd(info_s *inf)
 {
 	char *path = NULL;
-	int i, k;
+	int id, w;
 
-	info->path = info->argv[0];
-	if (info->linecount_flag == 1)
-	{
-		info->line_count++;
-		info->linecount_flag = 0;
-	}
-	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!is_delim(info->arg[i], " \t\n"))
-			k++;
-	if (!k)
-		return;
+inf->path = inf->argv[0];
+if (inf->linecount_flag == 1)
+{
+	inf->line_count++;
+	inf->linecount_flag = 0;
+}
+for (id = 0, w = 0; inf->arg[id]; id++)
+	if (!del_is(inf->arg[id], " \t\n"))
+		w++;
+if (!w)
+	return;
 
-	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
-	if (path)
-	{
-		info->path = path;
-		fork_cmd(info);
-	}
+path = fedn_puht(inf, _getevv(inf, "PATH="), inf->argv[0]);
+if (path)
+{
+	inf->path = path;
+	for_ocmand(inf);
+}
 	else
 	{
-		if ((interactive(info) || _getenv(info, "PATH=")
-					|| info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
-			fork_cmd(info);
-		else if (*(info->arg) != '\n')
+		if ((activitated(inf) || _getevv(inf, "PATH=") || inf->argv[0][0] == '/') && is_comoodd(inf, inf->argv[0]))
+			for_ocmand(inf);
+		else if (*(inf->arg) != '\n')
 		{
-			info->status = 127;
-			print_error(info, "not found\n");
+			inf->status = 127;
+			errorp_rint(inf, "not found\n");
 		}
 	}
 }
 
 /**
- * fork_cmd - forks a an exec thread to run cmd
- * @info: the parameter & return info struct
- *
- * Return: void
+ * for_ocmand - forking a thread exec after command runs
+ * @inf: return structure of informations & an argument
+ * Return: nothing
  */
-void fork_cmd(info_t *info)
+void for_ocmand(info_s *inf)
 {
-	pid_t child_pid;
+pid_t child_pid;
 
-	child_pid = fork();
-	if (child_pid == -1)
-	{
-		/* TODO: PUT ERROR FUNCTION */
-		perror("Error:");
-		return;
-	}
-	if (child_pid == 0)
-	{
-		if (execve(info->path, info->argv, get_environ(info)) == -1)
-		{
-			free_info(info, 1);
-			if (errno == EACCES)
-				exit(126);
-			exit(1);
-		}
-		/* TODO: PUT ERROR FUNCTION */
-	}
-	else
-	{
-		wait(&(info->status));
-		if (WIFEXITED(info->status))
-		{
-			info->status = WEXITSTATUS(info->status);
-			if (info->status == 126)
-				print_error(info, "Permission denied\n");
-		}
-	}
+child_pid = fork();
+if (child_pid == -1)
+{
+
+perror("Error:");
+return;
+}
+if (child_pid == 0)
+{
+if (execve(inf->path, inf->argv, envr_git(inf)) == -1)
+{
+	fee_inff(inf, 1);
+	if (errno == EACCES)
+		exit(126);
+	exit(1);
+}
+
+}
+else
+{
+wait(&(inf->status));
+if (WIFEXITED(inf->status))
+{
+	inf->status = WEXITSTATUS(inf->status);
+	if (inf->status == 126)
+		errorp_rint(inf, "Permission denied\n");
+}
+}
 }
 
