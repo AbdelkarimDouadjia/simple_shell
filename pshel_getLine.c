@@ -16,11 +16,11 @@ ssize_t inpu_buff(info_s *inf, char **buf, size_t *len)
 	{
 		free(*buf);
 		*buf = NULL;
-		signal(SIGINT, sigintHandler);
+		signal(SIGINT, sign_Hand);
 #if USE_GETLINE
 		r = getline(buf, &len_p, stdin);
 #else
-		r = _geline(info, buf, &len_p);
+		r = _geline(inf, buf, &len_p);
 #endif
 		if (r > 0)
 		{
