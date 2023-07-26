@@ -52,6 +52,7 @@ ssize_t gts_inpu(info_s *inf)
 	static size_t v, w, len;
 	ssize_t r = 0;
 	char **buf_p = &(inf->arg), *p;
+
 	_puuchir(BUF_FLUSH);
 	r = inpu_buff(inf, &buf, &len);
 	if (r == -1) 
@@ -68,7 +69,6 @@ ssize_t gts_inpu(info_s *inf)
 				break;
 			w++;
 		}
-
 		v = w + 1; 
 		if (v >= len)
 		{
