@@ -17,23 +17,23 @@ int is_chair(info_s *inf, char *buf, size_t *p)
 			w++;
 		inf->cmd_buf_type = CMD_OR;
 	}
-		
+
 	else if (buf[w] == '&' && buf[w + 1] == '&')
 	{
-			buf[w] = 0;
-		
+		buf[w] = 0;
+
 		w++;
 		inf->cmd_buf_type = CMD_AND;
 	}
-else if (buf[w] == ';') 
-{
-buf[w] = 0; 
-inf->cmd_buf_type = CMD_CHAIN;
-}
+	else if (buf[w] == ';') 
+	{
+		buf[w] = 0; 
+		inf->cmd_buf_type = CMD_CHAIN;
+	}
 
 
 else
-return (0);
+	return (0);
 *p = w;
 return (1);
 }
@@ -64,20 +64,19 @@ if (inf->status)
 	}
 	if (inf->cmd_buf_type == CMD_OR)
 	{
-if (!inf->status)
-{
-	buf[i] = 0;
-	w = len;
-}
-}
+		if (!inf->status)
+		{
+			buf[i] = 0;
+			w = len;
+		}
+	}
 
-*p = w;
+	*p = w;
 }
 
 /**
  * replace_alias - changes the alias's string entry tokenize .
  * @inf: the structure argum.
- *
  * Return: (0) always , else 1 replace the entry string.
  */
 int replace_alias(info_s *inf)
@@ -147,16 +146,17 @@ return (0);
  * cahnge_strr - the entry string will be changes
  * @old: stored the first entry string in var.
  * @new: stored the second entry string in var.
- * Return: 0 always, otherwise if (1) the second string will be changed to first.
+ * Return: 0 always, otherwise if (1) the second
+ *		string will be changed to first.
  */
 int cahnge_strr(char **old, char *new)
 {
-	
+
 free(*old);
-	
+
 		*old = new;
 
-	
+
 return (1);
 }
 
