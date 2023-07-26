@@ -114,7 +114,7 @@ int change_ver(info_s *inf)
 
 for (h = 0; inf->argv[h]; h++)
 {
-if (inf->argv[h][0] != '$' || !inf->argv[][1])
+if (inf->argv[h][0] != '$' || !inf->argv[h][1])
 	continue;
 
 if (!_stcmmp(inf->argv[h], "$?"))
