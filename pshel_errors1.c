@@ -55,12 +55,12 @@ void errorp_rint(info_s *inf, char *estrr)
  */
 int decc_print(int input, int fd)
 {
-	int (*__putchar)(char) = _puuchir;
+	int (*__puuchir)(char) = _puuchir;
 	int h, count = 0;
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
-		_puuchir = _charpiit;
+		__puuchir = _charpiit;
 	if (input < 0)
 	{
 		_abs_ = -input;
