@@ -18,7 +18,8 @@ return (d);
 }
 
 /**
- * liss_to_str - gives us  a list of multiple strings using the list->str funct.
+ * liss_to_str - gives us  a list of multiple 
+ *		strings using the list->str funct.
  * @head: the begin node has been pointered
  * Return: multiples of strings.
  */
@@ -54,10 +55,10 @@ return (strs);
 
 
 /**
- ** priin_liss - returns all the nodes of a (linked-list) => list_s 
+ ** priin_liss - returns all the nodes of a (linked-list) => list_s
  ** @h: the begin node element has been pointered
  ** Return: leng of liked-list
- **/
+**/
 size_t priin_liss(const list_s *h)
 {
 size_t d = 0;
@@ -76,12 +77,12 @@ return (d);
 }
 
 /**
- * start_nodd_wi - Gives an element node to whose string begin with prefix element .
- * @noe: elemn of the begin head of linked-list
- * @prefix: matching the begin strings.
- * @c: will pick char after prefix characteres and will matching it.
- * Return: nothing(null) or matching node
- */
+* start_nodd_wi - Gives an element node to whose string begin with prefix element.
+* @noe: elemn of the begin head of linked-list
+* @prefix: matching the begin strings.
+* @c: will pick char after prefix characteres and will matching it.
+* Return: nothing(null) or matching node
+*/
 list_s *start_nodd_wi(list_s *noe, char *prefix, char c)
 {
 char *p = NULL;
