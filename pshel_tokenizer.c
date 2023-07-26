@@ -59,16 +59,15 @@ s = malloc((1 + numwords) * sizeof(char *));
  */
 char **stoiww2(char *strr, char d)
 {
-
 	int h, w, f, m, numwords = 0;
-
 	char **s;
+
 	if (strr == NULL || strr[0] == 0)
 		return (NULL);
 	for (h = 0; strr[h] != '\0'; h++)
-			if ((strr[h] != d && strr[h + 1] == d) ||
-					    (strr[h] != d && !strr[h + 1]) || strr[h + 1] == d)
-				numwords++;
+		if ((strr[h] != d && strr[h + 1] == d) ||
+				    (strr[h] != d && !strr[h + 1]) || strr[h + 1] == d)
+			numwords++;
 	if (numwords == 0)
 		return (NULL);
 	s = malloc((1 + numwords) * sizeof(char *));
@@ -96,4 +95,3 @@ char **stoiww2(char *strr, char d)
 	s[w] = NULL;
 	return (s);
 }
-
