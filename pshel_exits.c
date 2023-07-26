@@ -11,6 +11,7 @@ char *_srtingcp(char *dest, char *src, int n)
 {
 	char *s = dest;
 	int v = 0;
+
 	while (src[v] != '\0' && v < n - 1)
 	{
 		dest[v] = src[v];
@@ -19,6 +20,7 @@ char *_srtingcp(char *dest, char *src, int n)
 	if (v < n)
 	{
 		int j = v;
+
 		while (j < n)
 		{
 			dest[j] = '\0';
@@ -40,6 +42,7 @@ char *_copncastr(char *dest, char *src, int n)
 	char *s = dest;
 	int v = 0;
 	int j = 0;
+
 	while (dest[v] != '\0')
 	{
 		v++;
