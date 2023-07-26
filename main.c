@@ -1,18 +1,18 @@
 #include "shell.h"
 
 /**
- * main - entry point
- * @ac: arg count
- * @av: arg vector
+ * main - point to entr
+ * @ac: count to parametere
+ * @av: vect to parameter
  *
- * Return: 0 on success, 1 on error
+ * Return: 0 if correct ,else error on 1 .
  */
 int main(int ac, char **av)
 {
-	info_t info[] = { INFO_INIT };
+	info_s inf[] = { INFO_INIT };
 	int fd = 2;
 
-	asm ("mov %1, %0\n\t"
+	asm volatile ("mov %1, %0\n\t"
 			"add $3, %0"
 			: "=r" (fd)
 			: "r" (fd));
@@ -26,20 +26,20 @@ int main(int ac, char **av)
 				exit(126);
 			if (errno == ENOENT)
 			{
-				_eputs(av[0]);
-				_eputs(": 0: Can't open ");
-				_eputs(av[1]);
-				_eputchar('\n');
-				_eputchar(BUF_FLUSH);
+				_epputss(av[0]);
+				_epputss(": 0: Can't open ");
+				_epputss(av[1]);
+				_charpiit('\n');
+				_charpiit(BUF_FLUSH);
 				exit(127);
 			}
 			return (EXIT_FAILURE);
 		}
-		info->readfd = fd;
+		inf->readfd = fd;
 	}
-	populate_env_list(info);
-	read_history(info);
-	hsh(info, av);
+	evv_populate_lis(inf);
+	reed_hihist(inf);
+	hsh(inf, av);
 	return (EXIT_SUCCESS);
 }
 
