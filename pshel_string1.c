@@ -51,8 +51,9 @@ char *_strtprp(const char *str)
 void _puutss(char *str)
 {
 	int d = 0;
-if (!str)
-	return;
+	
+	if (!str)
+		return;
 	while (str[d] != '\0')
 	{
 		_puuchir(str[d]);
