@@ -50,7 +50,7 @@ int _rmounsetenvv(info_s *inf, char *var)
 /**
  * _sinitenva - Initial a new environment var,
  *             or change an exist 1.
- * @info: Struct containe potential argum.
+ * @inf: Struct containe potential argum.
  * @var: an string of env variable property
  * @value: an string of env variable values.
  *  Return: 0.
