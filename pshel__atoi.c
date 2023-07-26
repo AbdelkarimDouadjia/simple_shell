@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- ** activitated -  shell on activitated mode it will return true 
+ ** activitated -  shell on activitated mode it will return true
  ** @inf: is an adress in structure
  ** Return: 1 if activitated mode; or 0.
  */
@@ -27,7 +27,7 @@ int del_is(char d, char *dem)
 /**
  ** alph_is - verifier if it alphabetic chararactere.
  ** @a: input the character
- ** Return: 0 otherwise; 1 if alphbetic 
+ ** Return: 0 otherwise; 1 if alphbetic
  **/
 
 int alph_is(int a)
