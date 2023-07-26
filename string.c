@@ -1,76 +1,79 @@
 #include "shell.h"
 
 /**
- * _strlen - returns the length of a string
- * @s: the string whose length to check
- *
- * Return: integer length of string
+ * _stlesn - gives us the size of the entry string.
+ * @s: verifie whose length has string
+ * Return: number of the size of the entry string.
  */
-int _strlen(char *s)
+int _stlesn(char *s)
 {
-	int i = 0;
+	
+int d = 0;
+if (!s)
+	return (0);
 
-	if (!s)
-		return (0);
-
-	while (*s++)
-		i++;
-	return (i);
+	
+while (*s++)
+	d++;
+return (d);
 }
 
 /**
- * _strcmp - performs lexicogarphic comparison of two strangs.
- * @s1: the first strang
- * @s2: the second strang
- *
- * Return: negative if s1 < s2, positive if s1 > s2, zero if s1 == s2
- */
-int _strcmp(char *s1, char *s2)
+ ** _stcmmp - performs lexicogarphic comparison of two strangs. / comparing the two entry strings on the parameters.
+ ** @s1: a 1 strang
+ ** @s2: a 2 strang
+ **
+ ** Return: (0) is they equal s1 === s2, else nergative if (s1 < s2), otherwise we get positive on (s1 > s2).
+ **/
+int _stcmmp(char *s1, char *s2)
 {
-	while (*s1 && *s2)
-	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
-	}
-	if (*s1 == *s2)
+while (*s1 && *s2)
+{
+	if (*s1 != *s2)
+		return (*s1 - *s2);
+	s1++;
+	s2++;
+}
+	if (*s1 == *s2){
 		return (0);
-	else
+		
+	}else{
 		return (*s1 < *s2 ? -1 : 1);
 }
+}
 
 /**
- * starts_with - checks if needle starts with haystack
- * @haystack: string to search
- * @needle: the substring to find
- *
- * Return: address of next char of haystack or NULL
+ * strest_wit - verifie to needle the begin stackhay. 
+ * @haystack: we need to find the string
+ * @needle: we need to search the substring in the begin
+ * Return: next charactere address on the memory has haystack or NULL
  */
-char *starts_with(const char *haystack, const char *needle)
+char *strest_wit(const char *haystack, const char *needle)
 {
-	while (*needle)
-		if (*needle++ != *haystack++)
-			return (NULL);
+	
+while (*needle)
+	if (*needle++ != *haystack++)
+	return (NULL);
+
+	
 	return ((char *)haystack);
 }
 
 /**
- * _strcat - concatenates two strings
- * @dest: the destination buffer
- * @src: the source buffer
- *
- * Return: pointer to destination buffer
+ * _stceat - the two strings must be joinds in one string.
+ * @dest: bufes has a destination
+ * @src: location of buffes
+ * Return: location buffes has been pointered
  */
-char *_strcat(char *dest, char *src)
+char *_stceat(char *dest, char *src)
 {
 	char *ret = dest;
-
-	while (*dest)
-		dest++;
-	while (*src)
-		*dest++ = *src++;
-	*dest = *src;
-	return (ret);
+while (*dest)
+	dest++;
+	
+		while (*src)
+	*dest++ = *src++;
+*dest = *src;
+			return (ret);
 }
 
